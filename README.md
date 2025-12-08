@@ -351,7 +351,6 @@ Web Scraping (عند الحاجة)
 <img src="images/Main Page.png"> <img src="images/HDI.png"> <img src="images/Filter Page.png">
 
 ملف لوحة التحكم متوفر في:
-dashboard/world_data_report.pbix
 
 <a href="dashboard/world dashboard.pbix">
 ⚙️ التحديات والحلول
