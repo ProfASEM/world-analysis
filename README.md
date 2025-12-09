@@ -1,259 +1,233 @@
 
 
-🌍 World Data Analysis Project
+# 🌍 World Data Analysis — End-to-End BI & Analytics Project
+# _________________________________________________________________
 
-This project demonstrates a complete end-to-end data analysis workflow, starting from collecting raw data, cleaning it using Python, preparing it with SQL, and finally building an interactive Power BI dashboard for insights and storytelling.
-It simulates a real-world BI project by integrating data from multiple sources and overcoming common data challenges.
+A complete analytics pipeline using Python, SQL, and Power BI to explore global development, population, economy, and HDI indicators.
 
-> Note: Although the dataset is clean and well-structured, it is not fully up-to-date, and this project should be considered a training simulation designed to practice real analytical workflows.
+## 📌 Project Overview
 
+This project simulates a full real-world BI workflow, starting from collecting and preparing raw global datasets, cleaning them with Python, validating joins and structures using SQL, and building a multi-page Power BI dashboard for data storytelling.
 
+The analysis integrates economic, demographic, linguistic, and human-development indicators to provide a wide view of world patterns and trends.
 
+**Note:** The dataset used is structured but not fully up-to-date.
+This project is designed as a training simulation to practice real analytical workflows.
 
----
+## 🎯 Objectives
 
-🎯 Project Objectives
+-Combine data from multiple sources (Python, SQL, Excel, scraped datasets)
 
-Collect, explore, and clean data from multiple sources.
+-Clean, reconcile, and standardize global indicators
 
-Handle missing values, inconsistent formatting, and type issues.
+-Perform EDA (Exploratory Data Analysis) using Python
 
-Perform descriptive and exploratory data analysis.
+-Build star-schema-ready tables for BI modeling
 
-Use Python, Pandas, SQL for data preparation.
+-Develop an interactive Power BI dashboard with KPIs, maps, correlations, and drill-downs
 
-Build relationships and a data model in Power BI.
+-Produce actionable insights for decision-makers and researchers
 
-Design interactive dashboards for insights and storytelling.
+## 🛠 Technologies Used
 
+#### Python: pandas, NumPy, matplotlib, seaborn
 
+#### Jupyter Notebook for analysis documentation
 
----
+#### MySQL for queries, validation & aggregation
 
-🛠 Tools & Technologies
+#### Power BI for modeling (relationships, DAX) & visuals
 
-Python (Pandas, NumPy)
+#### Web Scraping (optional) for enriching country-level indicators
 
-Jupyter Notebook
+## 📁 Project Structure
+world-analysis/ <br>
+│<br>
+├── notebooks/<br>            
+│   └── world_analysis.ipynb <br>
+│<br>
+├── data/<br>
+│   ├── raw/ <br>                # original files
+│   ├── cleaned/ <br>            # cleaned tables for modeling
+│   └── world.sql    <br>        # SQL exports used in analysis
+│<br>
+├── sql/<br>
+│   └── data_prep_queries.sql<br>
+│<br>
+├── dashboard/<br>
+│   └── world_data_report.pbix<br>
+│<br>
+└── images/<br>
+    ├── Main Page.png<br>
+    ├── HDI.png<br>
+    ├── Filter Page.png<br>
 
-SQL
+## 🧹 Data Cleaning & Preparation
+### ✔ Performed using Python (pandas) + SQL
 
-Power BI
+Included:
 
-Web Scraping (when needed)
+#### Identifying & correcting missing values
 
+#### Fixing inconsistent formats
 
+#### Converting GDP text values like:
 
----
+"3.5 trillion$"
 
-📂 Project Structure
+"850B"
 
-|-- notebook/
-|     └── world_analysis.ipynb
-|-- data/
-|     ├── world.sql
-|-- dashboard/
-|     └── world dashboard.pbix
-|-- README.md
+"1.2 billion"
+→ into normalized numerics
 
+#### Standardizing country names & ISO codes
 
----
+#### Removing duplicate records
 
-🧹 Data Cleaning Steps
+#### Creating derived metrics (e.g., HDI categories, GDP-per-capita groups)
 
-Identifying missing values and deciding how to handle them.
+#### Merging datasets from multiple sources (SQL tables + Excel files)
 
-Fixing inconsistent formatting (text, numbers, dates).
+#### Validating joins using SQL queries
 
-Converting units (e.g., GDP values).
+#### Exporting final cleaned dataset for Power BI
 
-Removing duplicates.
+## 🔍 Exploratory Data Analysis (Python)
 
-Standardizing key fields for merging (country names/codes).
+Analysis performed inside the notebook included:
 
-Merging datasets from different sources.
+#### Summary statistics
 
-Exporting final cleaned dataset.
+#### Distribution analysis for GDP, population, HDI
 
+#### Correlation matrix between economic & social indicators
 
+#### Outlier detection
 
----
+#### Ranking top/bottom populated countries
 
-🔍 Exploratory Data Analysis
+#### Extracting:
+✔ Most spoken languages
+✔ Highest GNP economies
+✔ Countries with lowest life expectancy
+✔ Cross-continent comparisons
 
-Performed using Python:
+Final visuals were re-created in Power BI for better storytelling.
 
-Summary statistics
+## 📊 Power BI Dashboard
 
-Distribution analysis
+The dashboard includes:
 
-Correlation analysis
+### 📌 Global KPIs
 
-Outlier detection
+Total population
 
-Feature comparisons
+Total GDP
 
+Average life expectancy
 
-> Most visualizations were later implemented in Power BI for better presentation.
+Average HDI level
 
+Growth statistics
 
+### 🌍 Pages Included
 
+Main Global Overview
 
----
+HDI Page (Map + Indicators)
 
-📊 Power BI Dashboard
+GDP & Population Trends
 
-Includes:
+Country Profile Page (Drill-Down)
 
-Global KPIs (Population, GDP, Growth Rate, etc.)
+Filter Page
 
-Top and bottom countries by key metrics
+Mobile Layout
 
-GDP and Life Expectancy trends
+## 📸 Dashboard Screenshots
+<img src="images/Main Page.png"> <img src="images/HDI.png"> <img src="images/Filter Page.png">
 
-Language distributions
+Dashboard file:
+dashboard/world_data_report.pbix
 
-HDI world map
+## ⚙️ Challenges & Solutions
+### 1️⃣ Multi-source data integration
 
-Correlation matrix
+**Challenge:** Different structures, formats, and naming conventions.
+**Solution:** Standardized country keys, cleaned in Python, validated via SQL.
 
-Country-level detailed report page
+### 2️⃣ SQL → Power BI import issues
 
-A mobile-friendly layout for phone viewing
+#### Encoding & column-type errors.
+**Solution:** Re-typed columns inside Power BI + pre-cleaned SQL tables.
 
-<img src="images\Main Page.png">
-<img src="images\HDI.png">
-<img src="images\Filter Page.png">
+### 3️⃣ GDP values stored as TEXT
 
+**Examples:** "$3.5 trillion", "850B", "1.2 billion"
+**Solution:** Created a Python parser to convert all formats to numbers.
 
-> Dashboard file available in: dashboard/world_data_report.pbix
-<a href="dashboard\world dashboard.pbix">
+### 4️⃣ Visual storytelling & design
 
+**Challenge:** Clean layout, balanced charts, mobile design.
+**Solution:** Rebuilt visuals, improved spacing & formatting.
 
+### 5️⃣ Dataset is not current
 
+**Solution:** Documented limitations and future update plan.
 
----
+## 💡 Key Insights from the Notebook
 
-⚙️ Challenges & Solutions
+### ✔ Population Distribution:
+Global population is extremely concentrated — a few countries dominate total world population.
 
-1️⃣ Integrating Data from Multiple Sources
+### ✔ Economic Inequality:
+GNP and GDP values show wide disparity between regions, with strong clustering patterns.
 
-Challenge: Data came from different formats, structures, and naming conventions.
-Solution:
+### ✔ Life Expectancy:
+Countries with higher GDP tend to have significantly higher life expectancy.
 
-Built a Power BI data model using cleaned keys.
+### ✔ HDI Correlation:
+HDI strongly correlates with education, GDP-per-capita, and healthcare indicators.
 
-Standardized country names/codes using Python.
+### ✔ Language Diversity:
+High language diversity in Asia & Africa; lower diversity in regions with homogeneous populations.
 
-Validated joins using SQL before import.
+These insights match and validate global development expectations and form the basis for dashboard storytelling.
 
+## 🚀 How to Run the Project
 
+1-Clone this repository
 
----
+2-Open notebooks/world_analysis.ipynb
 
-2️⃣ Importing SQL Data into Power BI
+3-Run all cells to reproduce cleaning & EDA
 
-Challenge: Importing SQL tables caused encoding and datatype issues.
-Solution:
+4-Load cleaned data into SQL or directly into Power BI
 
-Cleaned SQL output in Python first.
+5-Open dashboard/world_data_report.pbix
 
-Reassigned column types in Power BI (Power Query → Transform Data).
+6-Explore dashboard & insights
 
-Split large SQL tables into smaller structured ones.
+## 🔮 Future Enhancements
 
+-Build ML models to forecast GDP or life expectancy
 
+-Add automated ETL pipelines (Airflow/Prefect)
 
----
+-Connect to World Bank API for live data
 
-3️⃣ GDP Column Contained Textual Values
+-Publish Power BI report to cloud with scheduled refresh
 
-Examples:
-$3.5 trillion, $850B, 1.2 billion
+-Add country clustering & segmentation
 
-Solution:
+## 📬 Contact
 
-Built a custom Python function to convert all textual GDP units into numeric values.
+#### LinkedIn: www.linkedin.com/in/asem-haij-9797562a8
 
-Applied final validation in Power BI with Transform Data.
 
 
-This allowed correct calculations, correlations, and rankings.
 
-
----
-
-4️⃣ Visual Design and Layout Challenges
-
-Challenge: Achieving a clean, modern layout with balanced visuals.
-Solution:
-
-Improved visual formatting, colors, spacing, and alignment.
-
-Rebuilt charts from scratch when needed.
-
-Designed a phone layout version separately.
-
-
-
----
-
-5️⃣ Dataset Was Not Fully Up-to-Date
-
-This project aims to simulate a realistic BI workflow rather than provide current global statistics.
-
-
----
-
-💡 Key Insights
-
-(Replace these with your actual insights if needed)
-
-Countries with high GDP often show higher life expectancy.
-
-Population distribution is highly uneven globally.
-
-Some regions show consistent negative growth rates.
-
-HDI strongly correlates with economic and educational indicators.
-
-
-
----
-
-🚀 How to Run This Project
-
-1. Clone or download this repository.
-
-
-2. Open the Jupyter Notebook in the notebooks/ folder.
-
-
-3. Run all cells to reproduce data cleaning and analysis.
-
-
-4. Open the Power BI file to interact with the dashboard.
-
-
-
-
----
-
-📬 Contact
-
-If you'd like to connect:
-LinkedIn: (www.linkedin.com/in/asem-haij-9797562a8)
-
-
----
-
-🎉 Thank you for exploring this project!
-Feel free to reach out for discussion or collaboration.
-
-
-
-
-🌍 مشروع تحليل بيانات العالم
+# 🌍 مشروع تحليل بيانات العالم
 
 هذا المشروع يقدّم سير عمل كامل لتحليل البيانات من البداية حتى النهاية، بدءًا من جمع البيانات الخام، مرورًا بتنظيفها باستخدام Python، ومعالجتها باستخدام SQL، وانتهاءً ببناء لوحة تحكم تفاعلية في Power BI لعرض النتائج وصناعة القصة البصرية.
 
@@ -261,7 +235,7 @@ Feel free to reach out for discussion or collaboration.
 
 ملاحظة: رغم أن البيانات منظمة إلى حد ما، إلا أنها ليست محدثة بالكامل، لذا يُعد المشروع محاكاة تدريبية لتطبيق خطوات التحليل العملية.
 
-🎯 أهداف المشروع
+## 🎯 أهداف المشروع
 
 جمع واستكشاف وتنظيف البيانات من مصادر متعددة
 
@@ -275,7 +249,7 @@ Feel free to reach out for discussion or collaboration.
 
 تصميم لوحات تحكم تفاعلية لعرض البيانات وصياغة قصة بصرية قوية
 
-🛠 الأدوات والتقنيات المستخدمة
+## 🛠 الأدوات والتقنيات المستخدمة
 
 Python (Pandas, NumPy)
 
@@ -287,16 +261,29 @@ Power BI
 
 Web Scraping (عند الحاجة)
 
-📂 هيكل المشروع
-|-- notebook/
-|     └── world_analysis.ipynb
-|-- data/
-|     ├── world.sql
-|-- dashboard/
-|     └── world dashboard.pbix
-|-- README.md
+## 📂 هيكل المشروع
+world-analysis/ <br>
+│<br>
+├── notebooks/<br>            
+│   └── world_analysis.ipynb <br>
+│<br>
+├── data/<br>
+│   ├── raw/ <br>                # original files
+│   ├── cleaned/ <br>            # cleaned tables for modeling
+│   └── world.sql    <br>        # SQL exports used in analysis
+│<br>
+├── sql/<br>
+│   └── data_prep_queries.sql<br>
+│<br>
+├── dashboard/<br>
+│   └── world_data_report.pbix<br>
+│<br>
+└── images/<br>
+    ├── Main Page.png<br>
+    ├── HDI.png<br>
+    ├── Filter Page.png<br>
 
-🧹 خطوات تنظيف البيانات
+## 🧹 خطوات تنظيف البيانات
 
 تحديد القيم المفقودة واتخاذ القرار المناسب لمعالجتها
 
@@ -312,7 +299,7 @@ Web Scraping (عند الحاجة)
 
 تصدير النسخة النهائية النظيفة من البيانات
 
-🔍 التحليل الاستكشافي
+## 🔍 التحليل الاستكشافي
 
 تم باستخدام Python وشمل:
 
@@ -328,7 +315,7 @@ Web Scraping (عند الحاجة)
 
 تم تنفيذ معظم الرسوم البيانية لاحقًا في Power BI بشكل أكثر احترافية.
 
-📊 لوحة تحكم Power BI
+## 📊 لوحة تحكم Power BI
 
 تتضمن:
 
@@ -352,11 +339,11 @@ Web Scraping (عند الحاجة)
 
 ملف لوحة التحكم متوفر في:
 
-<a href="dashboard/world dashboard.pbix">
-⚙️ التحديات والحلول
-1️⃣ دمج البيانات من مصادر متعددة
+dashboard/world dashboard.pbix
+## ⚙️ التحديات والحلول
+### 1️⃣ دمج البيانات من مصادر متعددة
 
-التحدي: اختلاف التنسيقات والأسماء والهياكل
+التحدي: اختلاف التنسيقات والأسماء والهياكل<br>
 الحل:
 
 بناء نموذج بيانات في Power BI باستخدام مفاتيح موحدة
@@ -365,9 +352,9 @@ Web Scraping (عند الحاجة)
 
 التحقق من عمليات الدمج باستخدام SQL قبل الاستيراد
 
-2️⃣ استيراد البيانات من SQL إلى Power BI
+### 2️⃣ استيراد البيانات من SQL إلى Power BI
 
-التحدي: مشاكل الترميز وأنواع البيانات
+التحدي: مشاكل الترميز وأنواع البيانات<br>
 الحل:
 
 تنظيف البيانات أولًا في Python
@@ -376,7 +363,7 @@ Web Scraping (عند الحاجة)
 
 تقسيم الجداول الكبيرة عند الحاجة
 
-3️⃣ عمود الناتج المحلي GDP يحتوي على قيم نصية
+### 3️⃣ عمود الناتج المحلي GDP يحتوي على قيم نصية
 
 أمثلة:
 
@@ -392,9 +379,9 @@ Web Scraping (عند الحاجة)
 
 التحقق النهائي في Power BI عبر Transform Data
 
-4️⃣ تحديات التصميم البصري
+### 4️⃣ تحديات التصميم البصري
 
-التحدي: بناء تصميم حديث ومنسق ومناسب للمستخدم
+التحدي: بناء تصميم حديث ومنسق ومناسب للمستخدم<br>
 الحل:
 
 تحسين الألوان والمسافات والهوامش
@@ -403,11 +390,11 @@ Web Scraping (عند الحاجة)
 
 تصميم نسخة خاصة بالهاتف المحمول
 
-5️⃣ البيانات غير محدثة بالكامل
+### 5️⃣ البيانات غير محدثة بالكامل
 
 هذا المشروع يهدف إلى محاكاة سير عمل تحليلي واقعي أكثر من إعطاء إحصائيات عالمية حديثة.
 
-💡 أهم النتائج
+## 💡 أهم النتائج
 
 (يمكنك تعديلها حسب نتائجك الفعلية)
 
@@ -419,7 +406,7 @@ Web Scraping (عند الحاجة)
 
 مؤشر HDI يرتبط بقوة بالمؤشرات الاقتصادية والتعليمية
 
-🚀 طريقة تشغيل المشروع
+## 🚀 طريقة تشغيل المشروع
 
 تحميل المشروع أو استنساخه من GitHub
 
@@ -429,7 +416,7 @@ Web Scraping (عند الحاجة)
 
 فتح ملف Power BI لاستكشاف لوحة التحكم التفاعلية
 
-📬 للتواصل
+## 📬 للتواصل
 
 LinkedIn:
 (www.linkedin.com/in/asem-haij-9797562a8)
