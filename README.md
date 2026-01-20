@@ -145,7 +145,7 @@ Filter Page
 Mobile Layout
 
 ## 📸 Dashboard Screenshots
-<img src="images/Main Page.png"> <img src="images/HDI.png"> <img src="images/Filter Page.png">
+<img src="images/Main Page_updated.png"> <img src="images/HDI_updated.png"> <img src="images/Filter Page_updated.png">
 
 Dashboard file:
 dashboard/world_data_report.pbix
@@ -224,7 +224,12 @@ These insights match and validate global development expectations and form the b
 
 #### LinkedIn: www.linkedin.com/in/asem-haij-9797562a8
 
+## Recent Updates (Jan 2026)
+##### Refined data model logic to display official languages only for each country.
 
+##### Standardized scientific notation across visuals (e.g. km²).
+
+##### Minor layout refinements for improved clarity and consistency.
 
 
 # 🌍 مشروع تحليل بيانات العالم
